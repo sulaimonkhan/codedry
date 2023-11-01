@@ -1,5 +1,5 @@
 source common.sh
-component=catalogue
+component=cart
 
 echo -e "${color} configuring Nodejs Repos ${nocolor}"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$log_file
@@ -32,13 +32,3 @@ echo -e "${color} Start $Component Service ${nocolor}"
 systemctl daemon-reload &>>$log_file
 systemctl enable $component &>>$log_file
 systemctl restart $component &>>$log_file
-
-echo -e "${color} Copy Mongodb Repo file ${nocolor}"
-cp /home/centos/codedry/mongodb.repo /etc/yum.repos.d/mongo.repo &>>$log_file
-
-
-echo -e "${color} Install MOngodb Client ${nocolor}"
-yum install mongodb-org-shell -y &>>$log_file
-
-echo -e "${color} Load Schema ${nocolor}"
-mongo --host mongodb-dev.devopsb72.site </app/schema/$component.js &>>$log_file
