@@ -38,3 +38,14 @@ nodejs () {
   systemctl enable $component &>>$log_file
   systemctl restart $component &>>$log_file    
 }
+mongo_schema_setup (){
+  echo -e "${color} Start $Component Service ${nocolor}"
+  cp /home/centos/codedry/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>$log_file
+
+  echo -e "${color} Start $Component Service ${nocolor}"
+  yum install mongodb-org-shell -y &>>$log_file
+
+  echo -e "${color} Start $Component Service ${nocolor}"
+  mongo --host mongodb-dev.devopsb72.site <${app_path}/schema/$component.js &>>$log_file
+}
+  
