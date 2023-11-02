@@ -33,10 +33,10 @@ nodejs () {
   echo -e "${color} Setup SystemD service ${nocolor}"
   cp /home/centos/codedry/$component.service /etc/systemd/system/$component.service &>>$log_file
 
-  echo -e "${color} Start $Component Service ${nocolor}"
-  systemctl daemon-reload &>>$log_file
-  systemctl enable $component &>>$log_file
-  systemctl restart $component &>>$log_file    
+  echo -e "${color} Start $component Service ${nocolor}"
+  systemctl daemon-reload  &>>$log_file
+  systemctl enable $component  &>>$log_file
+  systemctl restart $component  &>>$log_file    
 }
 mongo_schema_setup (){
   echo -e "${color} Copy MongoDB Repo file ${nocolor}"
