@@ -38,7 +38,7 @@ nodejs () {
   systemctl enable $component  &>>$log_file
   systemctl restart $component  &>>$log_file    
 }
-mongo_schema_setup (){
+mongo_schema_setup () {
   echo -e "${color} Copy MongoDB Repo file ${nocolor}"
   cp /home/centos/codedry/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>$log_file
 
