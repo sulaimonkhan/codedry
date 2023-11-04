@@ -116,6 +116,6 @@ python () {
   pip3.6 install -r requirements.txt &>>/tmp/roboshop.log
   stat_check $?   
 
-  sed -i -e "s/roboshop_app_password/$1/"  cp /home/centos/codedry/$component.service
+  sed -i -e "s/roboshop_app_password/$1/" /home/centos/codedry/$component.service
   systemd_setup 
 }
