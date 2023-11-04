@@ -39,6 +39,8 @@ app_presetup() {
 systemd_setup(){
   echo -e "${color} Setup SystemD service ${nocolor}"
   cp /home/centos/codedry/$component.service /etc/systemd/system/$component.service &>>$log_file
+  sed -i -e "s/roboshop_app_password/$roboshop_app_password/" /home/centos/codedry/$component.service
+  
   if [ $? -eq 0 ]; then
     echo SUCCESS
   else
@@ -116,6 +118,6 @@ python () {
   pip3.6 install -r requirements.txt &>>/tmp/roboshop.log
   stat_check $?   
 
-  sed -i -e "s/roboshop_app_password/$1/" /home/centos/codedry/$component.service
+  
   systemd_setup 
 }
