@@ -100,7 +100,7 @@ maven() {
   yum install maven -y &>>$log_file
   stat_check $?
 
- app_presetup
+  app_presetup
 
   echo -e "${color} Download Maven Dependencies ${nocolor}"
   mvn clean package &>>$log_file
