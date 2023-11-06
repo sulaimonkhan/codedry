@@ -5,7 +5,7 @@ yum  module disable mysql -y &>>/tmp/roboshop.log
 stat_check $?
 
 echo -e "${color} Copy MySQL Repo File ${nocolor}"
-cp /home/centos/rbs-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>>/tmp/roboshop.log
+cp /home/centos/codedry/mysql.repo /etc/yum.repos.d/mysql.repo &>>/tmp/roboshop.log
 stat_check $?
 
 echo -e "${color} Install MySQL Community Server ${nocolor}"
