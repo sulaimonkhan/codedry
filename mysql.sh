@@ -17,6 +17,6 @@ systemctl enable mysqld &>>/tmp/roboshop.log
 systemctl restart mysqld &>>/tmp/roboshop.log
 stat_check $?
 
-echo -e "${color} Setup MySQL Password ${nocolor}"
+echo -e " ${color}  Setup MySQL Password  ${nocolor} "
 mysql_secure_installation --set-root-pass $1 &>>/tmp/roboshop.log
 stat_check $?
